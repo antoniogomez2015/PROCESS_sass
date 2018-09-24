@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 3 - Primeros Pasos en Sass - Curso Básico de Sass | https://www.youtube.com/watch?v=lQsNpIZAJ1A&index=3&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+
+
+	Documentación:
+	______________
+
+	_para el desarrollo de projectos y funciones debemos hacer referencia inmediata a la documentación oficial de Sass, en su página web, yendo ha "http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+	_en la cuál, encontraremos referencias y sentencias ha ejecutar en la línea de comandos ó terminal de windows
+	
+
+	New Project:
+	____________
+
+	_primero debemos entender de que se compone básicamente un proyecto de sass, y cuál, el es workflow, y filosofía de sass
+
+	_de ésta manera, debemos entender que sass, a través, de un archivo específico recibirá todas las sentencias ó código que introdujamos nosotros en un editor de texto como sublime text, u otros
+
+	_para que luego, sass, preprocese todo el código y lo converta en código css, convencional optimizado el cuál, podrá interpretar cualquier navegador web
+
+	_de ésta manera, sass, hará de "layer", ó capa entre las prestaciones y lógica de un lenguaje de programación y el css, convencional
+
+	_para lo cuál, sass, dispone de los siguientes tipos de archivos con la extensión
+	".cscss" 
+
+	_el cuál, debemos de crear con un editor de texto como por ejemplo "sublime text", "brakers", u otros
+
+	_éstos tipos de archivos los podemos incorporar dentro de la carpeta de archivos de css, de nuestro proyecto
+
+	_ó por el contrario podríamos hacer otra carpeta con otra estructura "cscss", dentro de nuestra estructua de archivos
+
+	_para que así, le indiquemos ha "sass", a través, de una sentencia que preprosece todos los archivos css, dentro de la carpeta "css", dentro de la estructura del proyecto y no en la carpeta donde de encuentras los archivos de tipo "cscss"
+
+
+
+	Modos de crear Proyectos:
+
+	_existen varios tipos de workflows, existentes ó compatibles para sass, uno nativo y varios por terceras partes a través, de frameworks, y plataformas dedicadas de pago y gratuitas
+
+	_así, de ésta manera, veremos dos tipos de procesos para la cración de proyectos con sass
+
+
+	Estructura del Proyecto:
+	_________________________
+
+	_primero debemos de crear la estructura del proyecto por ejemplo; en el servidor apache, que estemos utilizando por ejemplo en "xampp/htdocs/miProject/cscss"
+
+	_y en dicha esctructura de archivos lo más recomendables es crear un carpeta específica para los archivos sass, de topo ó extensión ".cscss"
+
+	_y dentro de ésta estructura debemos de generar un nuevo documento con la extensión ".cscss", con el nombre por ejemplo "main.cscss"
+
+	_en el cuál, realizaremos todas sentencias y expresiones sass, para nuestro proyecto web, y del cuál, se preprocesará todo el css, optimizado renderizando un archivo de extensión ".css"
+
+
+	Proyectos Nativos:
+	__________________
+
+	_y ya con la estructura del proyecto creada y con la creación a su vez, de un archivo con la extensión ".scss", en éste caso "main.scss", podremos porceder ha relacionar éste archivo con sass, y la estructura del proyecto propiamente dicha
+
+	_y ésto se realizará a través, de la opción natural ó nativa de sass, la cuál, se realizará a través, de sentencias ejecutadas directamente en la línea de comando de windows
+
+	_para lo cuál, lo primero será navegar hasta la ubicación del proyecto a través, de la línea de comandos de windows
+
+	_para lo cuál, lo más recomendable es escribir "cd ", y luego arrastrar la capeta directamente del explorador hasta ó dentro de la ventana de la línea de comandos de windows, para que así, dicha ubicación de la respectiva carpeta sea auto completada de forma más rápida y directa
+
+	_así, por ejemplo podremos arrastrar la carpeta que hemos destinado para los archivos de tipo "cscss", dentro de la estructura del proyecto sobre ó dentro de la ventana de la línea de comandos de windows, para luego darle ha "enter", para entrar en dicho directorio
+
+	_ó directamente podemos tipear la ruta entre directorio y directorio hasta llegar hasta la ruta específica de la carpeta respectiva del proyecto ej:
+
+		_"c:\Users\mono>cd C:\xampp\htdocs\sassproof\cscss", + "enter"
+
+
+
+	Mismo Directorio de Destino:
+	____________________________	
+
+	_para a continuación ya en la ruta de la respectiva carpeta tipear la sentencias que hará que sass, busque modificaciones en el archivo ".cscss", existente y si las hay, entonces que las preprocese y que actualize el archivos css, renderizado en la respectiva carpeta
+
+	_para ésto, sass, dispone de la siguiente sentencia ó script, "sass --watch main.scss:main.css", + "enter"
+
+		_lo cuál significa:
+
+		_sass watch //sass vigila la siguiente instrucción
+
+		_main.scss: //sass vigila el siguiente archivo
+
+		_main.css  //y preprocesalo en el siguiente archivo
+
+
+	_para que así, el sistema genere los archivos correspondientes más ésta opción opción generará el archivo "main.css", en el mismo directorio donde se encuentra el archivo sass "main.scss", más si deseamos que el archivo "main.css", se genere en un directorio específico debemos indicar dicho directorio en la misma instrucción del párrafo anterior
+
+
+
+	Diferente Directorio de Destino:
+	________________________________
+
+	_más para especificar un directorio de destino diferentes para el archivo ".scss", generado y preprocesado debemos modificar la sentenxia ó expresión sass, de la siguiente manera:
+
+		_primero debemos igualmente navegar hasta la ubicación exacta del directorio donde se encuentra el archivo "main.scss"
+
+		_para lo cuál, en la línea de comandos de windows, navegamos ha:
+
+		_"c:\Users\mono>cd C:\xampp\htdocs\sassproof\cscss", + "enter" 
+
+
+	_para posteriormente expresar la sentencia sass, de la siguiente manera:
+
+		_"sass --watch main.scss:../css/main.css", + "enter"
+
+
+	_de ésta manera, el sistema nos arrojará el siguiente mensaje satisfactorio:
+
+		_>>>Sass is watching for changes. Press Ctrl-c to stop.
+			directorio css
+				write ../css/main.css
+				write ../css/mainn.map
+
+	_de ésta manera, sass, subirá un directorio y creará los archivos css, correspondientes
+
+	_así, como también, dentro del directorio "scss", generará ua carpeta de tipo cache con el nombre de ".sass-cache", dentro de la cuál, habrá otra carpeta y dentro de ésta habra un archivo llamado "main.scssc"
+
+
+	UpDate:
+	_______
+
+	_de ésta manera, a partir de éste punto, todo lo que cambiemos ó agregemos en el archivo "main.scss", será convertido y preprocesado en el archivo "main.css", de forma automática a través, de la línea de comandos de windows
+
+	_lo único malo de éste proceso es que simepre tendremos que tener abierta la ventana de la línea de comandos de windows, para que si cerramos ésta, se cortará ó detendrá el proceso de sass, de preprocesado css
+
+	_y de ser así, de haber cerrado la ventana de la línea de comandos de windows, y de haber interrumpido el proceso de preprocesado css, de sass, tendremos que entonces volver ha abrir la línea de comandos y volver ha repetir todo el proceso para hacer la reconexión de sass, ej:
+
+		_"c:\Users\mono>cd C:\xampp\htdocs\sassproof\cscss", + "enter"
+
+			_"sass --watch main.scss:../css/main.css", + "enter"
+
+	_para que luego nos aprezca nuevamente el mensaje:
+
+		_>>>Sass is watching for changes. Press Ctrl-c to stop.
+			directorio css
+				write ../css/main.css
+				write ../css/mainn.map
+
+	_indicándonos así, que la reconexión se ha realizado satisfactoriamente
+
+
+
+	Stop Preprocesado Sass:
+	_______________________
+
+	_así, como también, en algunas ocaciones podríamos desear para el proceso de preprocesado css, con sass, para lo cuál, disponemos del siguiente comando sobre la línea de comandos de wondows, éste es "Control + C"
+
+	_para que así, nos aparesca un mensaje en la consola de comandos de windows, indicándonos el siguiente mensaje "¿Desea terminar el trabajo por lotes (S/N)?"
+
+	_para que así, si deseamos que así sea debemos darle a la letra "S", y no deseamos que termine el proceso de preprocesado con sass, debemos darle al botón "N", de nuestro teclado ó keyboard
+
+
+
+	Formatos de Hojas de Estilo:
+	____________________________
+
+	_sass, nos permite diferentes tipos de compilados ó diferentes tipos de preprocesamiento del código css, así, podremos renderizar ó generar un archivo de tipo .css, mimetizado, en línea ó identado entre otras formas de estructurar el código
+
+	_de ésta manera, tendremos diferentes opciones de configuración del código css, de ésta manera, dispondremos de los siguientes tipos de archivos css, ha generar:
+
+		_:nested
+
+			_ésta es la opción por defecto y la de etilo sass, y es bastante similar ha ":expanded", creando estilos de forma identada pero automática
+
+		_:expanded
+
+			_ésta es la opción por defecto y permite generar un css, de tipo de estructuración ó sin intervención a la normal que podríamos generar manualmente
+
+		_:compact
+
+			_ésta opción genera el código muy similar al código css, en línea
+
+		_:compressed
+
+			_ésta opción genera el código css, de forma mimetizada en una sóla línea
+
+
+	NOTA: para éste paso, debemos de parar previamente el preprocesado css, dicho método es explicado en la sección anterior más arriba
+
+	_y para aplicar éstos diferentes tipos de formatos de estilo css, debemos de volver ha aplicar la instrucción ó sentencia sass, más un añadido "--style name", ej:
+
+		_"c:\Users\mono>cd C:\xampp\htdocs\sassproof\cscss", + "enter"
+
+			_"sass --watch main.scss:../css/main.css --style compressed", + "enter"
+
+
+	NOTA: cuando detenemos el preprocesado css, de sass, y deseamos generar otros tipo de compilado css, como por ejemplo "compressed", u otro, es altamente recomendable ir al directorio y borar los estilos y archivos de cache existentes previamente ya que éstos podrían causar incoherencia y problemas en general, antes de generar los nuevos tipos de archivos css, con el nuevo modo de preprocesado y compilado css
+
+
+
+	Proyectos con Scout:
+
+	_los cuáles, se realizan a través, de la plataforma de "Scout", la cuál, permite administrar el proceso de creación y adminstración de proyectos ha modo de back-en y front-end
+
+	_para lo cuál, debemos ir a su página web, oficial yendo ha "http://scout-app.io/", ó a través, de un repositorio web, yendo ha "https://github.com/mhs/scout-app"
+
+
+
+
+
+	*/
+
+		
+		body{
+			width: 100%;
+			background-color: #777;
+			margin: 0 auto;
+
+			}
+
+			#wrapper{
+				width: 100%;
+				margin: 0 auto;					
+			}
+
+				#proof{
+					width: 70%;
+					height: 400px;
+					margin: auto;
+					color: #fff;
+					padding-top: 15%;
+					background-color: #222;	
+					text-align: center;					
+				}	
+
+					h1{
+						color: transparent;
+						font-family: monospace,helvetica,sans-serif;
+						font-size: 6em;
+						background:-webkit-linear-gradient(yellow, red);	
+						-webkit-background-clip: text;					
+					}			
+
+				
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div id="proof">
+
+			<h1>Hola Mundo</h1>			
+
+		</div>
+
+		
+	</div>
+	
+</body>
+
+</html>

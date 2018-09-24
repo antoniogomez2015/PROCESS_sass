@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 9 - La regla import y los Partials - Curso Básico de Sass | https://www.youtube.com/watch?v=N8mve3iP03E&index=9&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+
+
+	Import:
+	_______
+
+	_la regla interna de sass, "import", nos permitirá incorporar un archivo de tipo scss, ó sass, dentro de otro documento de sass
+
+	_para que al final se renderize ó compile un sólo archivo preprocesado css, generado por sass, a partir de uno ó de varios archivo ".scss", sass
+
+	_de ésta manera, en proyectos grandes podremos separar y organizar el código sass, en diferentes documentos por tipos de acciones de tipo sass, ejemplo; podríamos crear un archivo de tipo "scss", sass, para las "variables", otro para las funciones de tipo "mixins", otro para los "resset", y así, suscesivamente e incorporar todos éstos en el archivo "scss", sass, principal como pro ejemplo "main.scss ó screen.scss"
+
+	_ésta modalidad nos permitirá hacer una estructuración superior del contenido del proyecto web, ya que nos permitirar crear diferentes hojas de estilo en relación al nivel de la información, ej: (variable, funciones,otros)
+
+	_para que así, al modificar las estructuras de contenido superior sean modificadas y actualizadas las estructuras de menor nivel de forma dinámica y automática
+
+
+
+	Crear un Import Sass:
+	_____________________
+
+	_al crear un archivo de sass ".scss", para importación, debemos crear éste como un archivo sass ".scss", como cualquier otro pero en el nombre que le asignemos ha éste, debemos de anteponerle un "underscore", ó "piso", "_"
+
+		"_resset.scss"
+
+	_es requerido agregarle el "underscore", ó "_", al nombre que le asignamos al archivo ha crear para que así, el sistema sass, no realize ó cree un nuevo documento renderizado ó preprocesado css, a partir de éste nuevo archivo de tipo sass ".scss"
+
+	_de ésta manera, el sistema interpretará en primera instancia éste nuevo archivos de tipo sass ".sccs", como un archivo "partial", ó parcial
+
+	_para que así, éste nuevo archivo de tipo sass ".scss", sólo sea utilizable vía importación "impot", en otros documento de tipo sass ".scss"
+
+
+	Importar un _.Scss:
+	___________________
+
+	_y para importar archivos parciales ó "partials", sass ".scss", dentro de un documento sass, principal, debemos hacer uso de la instrucción '@import ""';
+
+	_y la respectiva llamada ha un archivo de tipo sass ".scss", puede ser de dos manera las cuñales son:
+
+		_@import "_estructuras";
+
+		_@import "_estructuras.scss";
+
+
+	_de ésta manera, podremos agregar la extensión del archivo en éste caso ".scss", ó agregarla ya que sas interpretará de forma automática el tipo de archivo y su compatibilidad en el sistema y la estructura de nuestro proyecto
+
+	_así, como también, podremos repetir éste proceso para incorporar más de un documento sass, "partial", ej:
+
+		_@import "_estructuras.scss";
+
+		_@import "_variales.scss";
+
+		_@import "_funciones.scss";
+
+		_@import "_colores.scss";
+
+	_así, como también, podremos importar diferentes ficheros en una misma declaración ej:
+
+		_@import "_estructuras.scss", "_variables.scss";
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 11 - Los Media Queries - Curso Básico de Sass | https://www.youtube.com/watch?v=crwsO3iXGRM&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=11
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+
+
+	Media Queries:
+	______________
+
+	_"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+	_sass, contempla y soporta los media quaeries, los cuáles son condicionales para conjuntos de reglas ó atributos css, determinados
+
+	_espacialmente útil para las diferentes configuraciones correspondientes a los diferentes dispositivos como destop, laptop, tablet, mobile
+
+	_de ésta manera, la condicional de los condicionales media queries, será un atributo css, respectivo, por lo general siempre será el atributo "width:", ó ancho el cuál, corresponderá al ancho del viewport, de la ventan del navegador respectivo
+
+	_de ésta manera, al tener el viewport, el ancho mínimo indicado en el condicional media queries, entonces se llevarán a cabo las respectivas reglas css, contenidas en éste respectivo media querie, sobre de demás reglas ó atributos css existentes, fuera del media queries, respectivo sobre el contenido html, respectivo
+
+
+	Creación de Media Queries con Sass:
+
+	_para la creación de media queries, lo más recomendables es crearlos ó hacerlos hijos del elemento padre respectivo al cuál, éstos hacer referencia que por lo general serál, al elemento contenedor principal que representará a la ventana del documento ó viewport
+
+
+		_#wrapper{
+			width:90%;
+			height:auto;
+			margin:0 auto;
+			display:flex;
+			background-color:#222;	
+		}
+
+			 @media (max-width: 720px){
+			 	width:70%;	
+			 	background-color: orange;	
+			 }
+
+			   @media (min-width: 320px) and (max-width: 480px){
+			 	width:100%;	
+			 	background-color: blue;	
+			 }
+
+	_así, como también, a través, de sass, podremoa ampliar las posbilidades de los media queries, por medio del uso de variales y otros métodos de estructuración del contenido como los "mixin", ó "extendeds"
+
+
+		_vaiables para condicionales
+
+			_$tablets: 720px;
+			_$mobile: 480px;
+
+		_variables para dispositivos:
+
+			_$width_mobile: 100%; //variable
+			_$width_tablet: 70%;  //variable
+
+		_#wrapper{
+			width:90%;
+			height:auto;
+			margin:0 auto;
+			display:flex;
+			background-color:#222;	
+		}
+
+			 @media (max-width: 720px){
+			 	width:$width_tablet;	
+			 	background-color: orange;	
+			 }
+
+			   @media (min-width: 320px) and (max-width: 480px){
+			 	width:$width_mobile;	
+			 	background-color: blue;	
+			 }
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

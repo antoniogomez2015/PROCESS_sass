@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 10 - Funciones de Color - Curso Básico de Sass | https://www.youtube.com/watch?v=8USPmmD5mMM&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=10
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+
+
+	Color Functions:
+	________________
+
+	_sass, nos brinda varios tipos de funciones para la administración y gestión del color las cuáles se expresan a continuación:
+
+	
+	Operaciones Aritméticas:
+
+	_sass, permite las operaciones matemáticas como "(+, -, *, /)" en variales creadas con atributos de color como valores
+
+	_de ésta manera, podremos sumar dos ó mas valores de color de forma parcial para obtener así, un tercer valor de color aplicado como producto renderizado ó interpretado css, por sass, ej:
+
+		_$color1: "#452";
+
+		_$color2: "#325";
+
+
+		_section{
+			backgorund-color: $color1 + $color2;
+		}
+
+
+	_de ésta manera, sass, susmará el valor de ambas aribles expresadas anteriormente y arrojará un valor de color resultante como color asignado al atributo en éste caso "background-color"
+
+	_ésta opción nos permitirá hacer variaciones de color de forma parcial y por medio de los campos de valores en vez de uno sólo
+
+	
+
+	FUnciones RGB:
+
+	_éste método nos permitirá controlar el sistema de conlos a través, de estructuras simples has complejas
+
+		_$color: rgb($red, $green, $blue);
+
+	_de ésta manera, podremos que el valor del color sea alamacenado en una variable así, como también, que los valores que componen el color también, sean dinámicos e interactivas por medio de diferentes métodos
+
+	_ó directamente podremos utilizar valores numéricos de forma simple ó convencional
+
+		_$color: rgb(235,155,255);
+
+	_así, como también, podremos utilizar canal alpha
+
+		_$color: rgba($red, $green, $blue, $alpha);
+
+	_también, podríamos expresar los valores de forma mixta, integrando valores separados rgba, y valores exadecimales en una sóla expresión:
+
+		_$color: rgba(#458712, 0.5);
+
+
+	_e incluso tendremos la posibilidad de trabajar con los valores independientes para cierto de operaciones dinámicas:
+
+		_red($red);
+
+		_green($green);
+
+		_blue($blue);
+
+
+
+	HSL Functions
+
+	_ésta modalidad nos permitirá crear efectos con paletas de colores a partir de una sólo color, método mucho más avanzado que el que permite el método "rgba()"
+
+	_el matiz, ó "H", se representa en el círculo cromátiva y css, "buscar en google: Color Wheel and CSS", para que así, encontremos el círculo cromático con los valres css, para el matiz, ó "H", el cuál, representará los valores en grados
+
+	_y la saturación es representada en porcentajes "%", en relación al círculo cromático y los valores css, al igual que la luminocidad también es expresada en porcentaje "%", la cuál, se presenta como expanción en el círculo gromático css
+
+	_el método hsl(), ó "matiz, saturación y brillo", e igualmente que el método rgb(), podremos crear estrucutras simples y complejas a través, de variables, otros
+
+		_hsl($red,$green, $blue);
+
+	_así, como también, podremos exprear el color hsl, a través, de valores numéricos directamente
+
+		_hsla(180deg, 50% 30%, .7)
+
+
+	_así, como también, podremos trabajar con valores independientes para procesos de automatización entre otras posbilidades de efectos
+
+		_hue($color)
+
+		_saturation($color)
+
+		_lightness($color)
+
+
+	_así, como otras aplicaciones mixtas:
+
+		__adjust-hue($color, $degrees)
+
+		_lighten($color, $amount)
+
+			_de ésta manera, el valor de "$color", equivaldrá al color
+
+			_y el valor de "$amount", equivaldrá a la cantidad de color
+
+			_de ésta manera, podremos aplicar ésta modalidad de color como un valor de un atributo de color css, lo cuál, aumenta las posibilidades de aplicación de color así, como también, la aplicación práctiva de resaltado y de las posibles transformaciones de color de forma plana y estructurada y predecide para diferentes tonos y matices sin importar éstos ej:
+
+				_div{
+					background-color: lighten($miColor, 30%); //ó de la siguiente manera
+					background-color: lighten(#458741, 30%); //ó de la siguiente manera
+				}
+
+			_de ésta manera, sólo se aplicará el "30%", del respectivo color
+
+			_de igual manera, podremos hacer para el resto de modalidades de color
+
+			_de ésta manera, podremos entender que a través, de un color determinado capturado dinámicamente en una variable podremos modificarlo dinámicamente en relación a las acciones del usuario para hacer cambier el estado de un determinado proceso, otros, a través, de los diferentes métodos "lighten, darken, saturate, otros"
+
+		_darken($color, $amount)
+
+		_saturate($color, $amount)
+
+		_grayscale($color)
+
+		_complement($color)
+
+		_invert($color)
+
+		_alpha($color) / opacity($color)
+
+		_opacify($color, $amount) / fade-in($color, $amount)
+
+		_transparentize($color, $amount) / fade-out($color, $amount)
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

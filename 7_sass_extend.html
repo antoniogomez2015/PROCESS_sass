@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 8 - Extender Estilos con extend y Placeholder - Curso Básico de Sass | https://www.youtube.com/watch?v=THOr6_QKt-Q&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=8
+
+
+
+	Extends:
+	________
+
+	_sass, permite la capacidad de extender selectores a través, de otros selectores que ya están definidos en nuestra hoja de estilos sass
+
+	_de ésta manera, podremos aprovechas las cualidades de un selector existente para poderselas aplicar ha otro selector determinado
+
+	_así, de ésta manera, podremos reciclar atributos entre selectores diferentes en sass
+
+
+	_ésta opción es muy similar a la opción de las funciones "mixin", aunque las opciones de "extends", son más limitada que las opciones de "mixin"
+
+
+
+	Creado un Función Extend:
+	_________________________
+
+	_para crear una función interna de tipo "extend", debemos de hacer uso de la ícono clave "@", 
+
+	_seguido de la palabra clave ó palabra reservada "extend"
+
+	_y seguido a continuación el nombre del selector el cuál queremos replicar ó aplicar ha otro selector, ej:
+
+
+		_section{
+			width:100%;
+			height:auto;
+			border: 1px solid red;
+			padding:3%;
+			background-color: orange;
+		}
+
+		_footer{
+			@extend section;
+			background-color: purple;
+		}
+
+
+	_de ésta manera, ahora el selector "footer", siguiendo el ejemplo de arriba, éste ahora tomará los atributos existentes en el selector "section", y los hará suyos
+
+	_excepto que en el mismo selector en éste caso "footer", existan uno ó más selectores coincidentes ó comúnes entre ambos selectores
+
+	_ésto quiere decir que los atributos css, que se repitan entre ambos selectores tendrán una mayor jerarquía los selectores propios dentro del selector en el cuál, se está haciendo uso ó llamado de la función interana de sass "@extend"
+
+	_ésta es una forma ó modalidad muy práctica en la cuál, podremos replicar sólo algunos de los atributos de algún selector determinado de forma directa y coherente
+
+	_aunque ésta opción no tenga los alcances universales de las opciones de la función sass "mixin", es bastante útil para la mayoría de los cosas convencionales
+
+
+
+	Extends Multiples:
+	__________________
+
+	_también, tendremos la posbilidad de expresar varios extend, dentro de otros selectores para ampliar aún más las posibilidad de los selectores extendidos ej:
+
+		_section{
+			width:100%;
+			height:auto;
+			border: 1px solid red;
+			padding:3%;
+			background-color: orange;
+		}
+
+		_section2{
+			width:50%;
+			height:50%;
+			border: 1px solid red;
+			padding:10%;
+			background-color: blue;
+		}
+
+
+
+		_footer{
+			@extend section;
+			@extend section2;
+			background-color: purple;
+		}
+
+	_más también, podremos hacer una declaración más compacta en la cuál, declaremos ambos extends, en una sóla declaración separadas por comas ",", ej:
+
+		_section{
+			width:100%;
+			height:auto;
+			border: 1px solid red;
+			padding:3%;
+			background-color: orange;
+		}
+
+		_section2{
+			width:50%;
+			height:50%;
+			border: 1px solid red;
+			padding:10%;
+			background-color: blue;
+		}
+
+
+
+		_footer{
+			@extend section, section2;			
+			background-color: purple;
+		}
+
+
+	
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

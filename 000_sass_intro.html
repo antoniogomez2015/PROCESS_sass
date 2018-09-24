@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 1 - Introducción - Curso Básico de Sass |https://www.youtube.com/watch?v=ZHW0xOLmBdU&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Sass en Español:
+			https://sass-guidelin.es/es/
+
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+	
+
+	sass Definición:
+	________________
+
+	_sass, significa "Syntactically Awesome Stylesheets" u "hojas de estilo sinttácticamente impresionantes"
+
+	_sass, es un "Preprocesador Css", creado en el 2006, para mejorar las deficiencias existentes en el css, plano y convencional
+
+
+	beneficios:
+
+	_el mayor beneficio es la productividad, especialmente útil para sitios grandes ó ámplios con cientos ó miles líneas de código lo cuál, permite la automatización de tareas así, como la sintetización de las mismas a través, de los principios y herramientas de un lenguaje de programación completo
+
+	_sass, es 100%, compatible con css3
+
+	_sass, nos permite escribir una sintaxis más simple
+
+	_sass, nos permite utilizar variables, funciones, código anidado
+
+	_sass, nos permite generar archivos css, bien formateados y controlar su formato
+
+
+	Instalar Ruby:
+	______________
+
+	_sass, esta disponible para trabajar en Window, Mac y Linux
+
+	_sass, está escrito ó desarrollado bajo el lenguaje de programación "Ruby", por ende debemos de instalar ruby, en nuestro sistema operativo
+
+	_pero primero, es recomendable conformar si ya tenemos previamente instalado ruby, en nuestro sistema, para lo cuál, abrir la terminal de comandos de windows, yendo ha "inicio/", y escribiendo en el campo de búsqueda la palabra clave "C M D", para que así, se abra la terminal de comandos de windows, en la cuál, debemos de pegar ó tipear la palabra clave de "ruby -v", para que el sistema nos arroje la versión de ruby, encontrada en el sistema así, como también, nos podrá indicar que éste comando no es válidos, lo cuál, indicará que ruby, no está instalados en nuestro sistema lo que nos indicará que tendremos que instalarlo yendo a la página oficial de ruby
+
+	_para lo cuál, debemos de ir al sitio oficial del ruby, y descargar una versión de ruby si es que no tenemos una versión de ruby, instalada en nuestro sistema previamente
+
+	_para ésto, vamos a la página "http://rubyinstaller.org/", en la cuál, en la sección de descargas debemos de descargar una versión actualizada más que ésta sea estable y reconocida como tal
+
+	_de ésta manera, procedemos ha instalar ruby, a través, de un instalador para window, en éste caso, lo cuál, es como instalar cualquier otro programa en window, por medio de un paso ha paso guiado ó wizard
+
+
+	Instalar Sass:
+	______________
+
+	_de ésta manera, luego de haber instalado ruby, en nuestro sistema satisfactoriamente debemos proceder ha instalar "sass"
+
+	_en éste punto, debemos entender que "sass", será una "gema", ó un "packcage", de código de ruby, el cuál, debemos descargar y siscronizar con la versión de ruby, instalada en nuestro sistema
+
+	_para lo cuál, debemos abrir la línea de comandos, para ésto vamos ha "inicio/", y en el campo de búsqueda escribimos el comando "CMD", para que así, se nos abra la terminal de comandos de windows, en éste caso
+
+	_para luego, ir a la página oficial de "sass", en la sección de instalación yendo ha "http://sass-lang.com/install", y seguir los pasos de instalación por la terminal de comandos de windows
+
+	_para que así, de ésta manera, en la página de sass, debemos tomar el comando ha ejecutar en la línea de comandos de windows, que en éste caso será "gem install sass", así, tendremos que pegar ó tipetar éste comando para luego darle ha "enter", para que así, el sistema comienze ha descargar e instalar la "gema", de "ruby", en nuestro sistema para que así, ya tengamos dado de alta "sass", en nuestro sistema
+
+	_así, la línea de comandos de windows, nos indicará que la gema de ruby, ha sido instalada correctamente "1 gen installed"
+
+	_para luego conprobar en la línea de comandos de windows, que hemos instalado sass, correctamente podremos pegar ó tipear el siguiente comando "sass -v", más "enter"
+
+	_para que así, el sistema nos arroje la versión de sass, instalada en el caso de que la instalación haya terminado satisfactoriamente y no nos de ningún error en ésta compribación de versión de sass
+
+	_en éste caso el sistema indica que la versión de sass, instalada en la versión "Sass 3.4.22(Selective Steve)"
+
+
+	Sass Help (comandos de ayuda)
+	_____________________________
+
+	_y como en cualquier lenguaje de programación dispodremos de una sección de comandos de ayuda
+
+	_y para acceder ha ésta sección de comandos dentro de la terminal de comandos de windows, debemos pegar ó tipear el siguiente comando "sass -help"
+
+	_para que así, el sistema nos arrije todos los comandos disponibles en relación a la sección de ayuda de sass, ha modo de lista
+		
+
+	*/
+
+		
+		body{
+			width: 100%;
+			background-color: #777;
+			margin: 0 auto;
+
+			}
+
+			#wrapper{
+				width: 100%;
+				margin: 0 auto;					
+			}
+
+				#proof{
+					width: 70%;
+					height: 400px;
+					margin: auto;
+					color: #fff;
+					padding-top: 15%;
+					background-color: #222;	
+					text-align: center;					
+				}	
+
+					h1{
+						color: transparent;
+						font-family: monospace,helvetica,sans-serif;
+						font-size: 6em;
+						background:-webkit-linear-gradient(yellow, red);	
+						-webkit-background-clip: text;					
+					}			
+
+				
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<div id="proof">
+
+			<h1>Hola Mundo</h1>			
+
+		</div>
+
+		
+	</div>
+	
+</body>
+
+</html>

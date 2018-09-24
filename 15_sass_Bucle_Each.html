@@ -1,0 +1,229 @@
+<!DOCcontenido html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" contenido="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" contenido="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style contenido="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 16 - Directiva Each - Curso Básico de Sass | https://www.youtube.com/watch?v=sVT-fwvLvpQ&index=14&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+		Listas:
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+
+
+
+	Bucle Each:
+	___________
+	
+	_sass, nos permite la creación de directivas en éste caso de bucles, los cuáles, nos permitirán iterar ó alternar el valor asignado ha una variable 
+
+	_en éste caso; los identificadores ó "id="", ó clases ".", de una serie de elemento html, determinados
+
+	_para que así, podamos solicitar de forma secuenciada cada uno de los valores de la lista de elementos dentro de los posibles valores de la variable
+
+	_sass, interpreta la directiva "@each", como un "array", no como un "for each", en programación clásica
+
+
+	Creación de Each:
+
+	_para lo cuál, tendremos que preceder la palabra reservada "each", con el ícono arroba "@"
+
+	_para posteriormente crear una variable "$miVaraible", genérica la cuál, hará de contenedor temporal del valor dentro del bucle que necesitemos llamar en un momento determinado
+
+	_y posteriormente para conectar ó incluir los posibles valores dentro de la variable que creamos en el paso anterior en el bucle each, debemos hacer uso de la palabra reservada "in"
+
+	_para a continuación enunciar los valores posibles que tendrá el bucle a través, de la respectiva variable genérica
+
+	NOTA: debe entenderse que los valores incluidos como valores de la variable del ciclo "each", corresponderán a los elementos sobre los cuáles serán volcados los elementos ó atributos css, ha generar por el bucle {}, de ésta manera, por lo general éstos elementos serán selectores ó clases, los cuáles harán ferefencia ha elementos html
+
+	_éstos valores los podemos expresar de diferentes manera, desde uno al lado del otro sin la nesidad de separarlos por comillas ej: migato miperro miconejo;
+
+	_así, como también, podremos separarlos por comas ",", ej; migato, miperro, miconejo;
+
+	_ó incluso, incluirlos dentro de comillas dobles ó simples ej: "migato", "miperro", "miconejo";
+
+	_e incluso, podremos hacer agrupaciones más complejas de elementos para lo cuál, tendremos que agregar a la formulas los paréntesis separados por comas ",", ej: (migato, miperro, miconejo), (miaraña, miloro, migallo){};
+
+	_para a continuación asignarle unas llaves dentro de las cuáles incorporaremos las sentencias ha ejecutarse sobre un selector ó variable interpolada como selector preferiblemente
+
+	_quedando la sentencia del bucle each, de la siguiente manera en sass:
+
+			<div id="proof">
+					<div class="iconoA">nuevos iconos</div>
+					<div class="iconoB">nuevos iconos</div>
+					<div class="iconoC">nuevos iconos</div>
+					<div class="iconoD">nuevos iconos</div>
+					<div class="iconoE">nuevos iconos</div>
+					<div class="iconoF">nuevos iconos</div>				
+			</div>	
+
+
+		@each $var in iconoA, iconoB, iconoC, iconoD, iconoE, iconoF{
+
+			#proof .#{$var}{
+
+				
+				background-image: url("../source/img/#{$var}.png");
+				
+			}
+		}
+
+	_de ésta manera, podremos leer que estamos utilizando en el ejemplo de arriva la varaible con el nombre "$var", para asígnarle como valores en modo de lista, los nombre de las clases de los diferentes elementos html, de tipo <div>
+
+	_para a continuación proceder ha referirnos al grupo de elementos html, específicos usaremos un selector ó elemento html, en éste caso "#proof", aunque éste paso ó proceso no es necesario
+
+	_para luego utilizar la variable que creamos con el nombre "$var", de informa interpolada para poder así, utilizar éste como un selector html, para lo cuál, debemos utlizar la siguiente estructura #{}, para interpolar la variable quedando así #{$var}
+
+	_para posteriormente entre llaves expresar ó enunciar las sentencias que se ejecutarán en cada selector indicado como valor dentro de los valores asignados a la variable "$var"
+
+	_los cuáles serán representados en cada iteración ó instanciado de la varaible, los cuáles, se representarán tantas veces con valores el ciclo encuentre dentro de la variable en éste caso de la variable "$var"
+
+	_y en el ejemplo anterior se hizo algo más complejo ya que se hizo coincidir el nombre de las clases de los elemento html, con los nombre de las imágenes ha cargar como fondos ó background, de los respectivos elementos html
+
+	_de ésta manera, se ha utilizado el bucle each, de forma mútilple
+
+	_de ésta manera, podremos ver que el sistema ahora le asigna a cada respectiva clase en éste caso, el atriuto "bakcgorund-image: url('')"
+
+
+	_y otra manera, de estructura un buble each, es a través, de la estructuración del contenido por bloques separados en una variable por aparte ej:
+
+
+		//variable externa al bucle:		
+		$vares: (iconoA, iconoB, iconoC, iconoD, iconoE, iconoF);
+
+		@each $var in $vares{
+
+			#proof .#{$var}{
+				
+				background-image: url("../source/img/#{$var}.png");
+				
+			}
+		}
+
+
+	NORA: para representar valores de tipo "string", como valores en atributos y selectores expresados a través, de las directivas de sass, como each, if, for y otros
+
+	_debemos hecer del elemento "unquote()", ej:
+
+
+		@for $i 1 through $grid-system{
+			-columna-#{$i}{
+				width: ($i * 5) + 'px';
+			}
+		}
+
+		@for $i 1 through $grid-system{
+			-columna-#{$i}{
+				width: unquote(($i * 5) + 'px');
+			}
+		}
+
+	_de ésta manera, sass, representará los calores como valoes y no entre comillas como strings, por ejemlo: width: 100px;, y no width: 100'px';
+
+
+
+	Buble each, con la implementación de maps:
+
+	_entendiendo de la modalidad de mapas permite expresar las listas en modos de elementos pares
+
+	_así, a través, de éste método podremos exprear tanto atributos como sus respectivos valores y enviar éstos como valores de una variables los cuáles serán utilizados para el bucle respectivo
+	
+
+		@each $header, $size in (h1: 2em, h2: 1.5em, h3: 1.2em) {
+		  #{$header} {
+		    font-size: $size;
+		  }
+		}
+
+
+
+
+	Un ejemplo más directo y claro:
+	_______________________________
+
+		@each $tag, $prop, $value in (h4, font-size, 2rem), (h5, font-size, 1rem){
+	
+			#{$tag}{
+				
+				#{$prop}: $value;
+			}
+
+		}
+
+	_de ésta manera, sass, preprocerá el siguiente css:
+
+		_h4{
+			font-size: 2rem;
+		}
+
+		_h5{
+			font-size: 1rem;
+		}
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCcontenido html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" contenido="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" contenido="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style contenido="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 15 - Directiva de control While - Curso Básico de Sass | https://www.youtube.com/watch?v=_HZcHWnWYIY&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=15
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+		Listas:
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+
+
+
+	Bucle While:
+	____________
+	
+	_sass, y la directiva "while", la cuál, nos permitirá generar estilos automáticamente de manera logarítica, es dicer, podremos crear selectores css, con valores incrementales hasta que la condición dada en el bucle deje de cumplirse ó hasta que ésta sea "false"
+
+	_por ejejmplo; podremos crear selectores css, inexistentes como ".miArbol-1, .miArbol-2, .miArbol-3, .miArbol-4, .miArbol-5, .miArbol-6,...", a través, del bucle @while
+
+
+	
+	Construir bucle While:
+
+	_para lo cuál, lo primero que tendremos que hacer es una varaibles a la cuál, le tendremos que asígnar un valor de tipo numérico el cuál, hará de índice, y dicha variable la cuál, estará fuera del bucle white
+
+	_para a continuación, hacer uso del ícono de arroba "@", preseciendo a la palabra reservada "while" "@while"
+
+	_para luego, a partir de ésta punto, agregar la variable que creamos previamente, en éste caso la variable "$indice"
+
+	_para a continuación, agregar un signo de comparación lógica, como por ejemplo: "mayor que ">", menor que "<", igual igual "==", otros"
+
+	_y para luego, indicar un valor sobre el cuál, se hará la comparación para que así, se genere ó cree el condicional respectivo del buble white
+
+	_para posteriormente, agregar dos llaves en las cúáles se agregarán las sentencias ha ejecutarse las cuáles, estarán compuestas por los atributos ha ejecutarse 
+
+	_para por último, asignarle un nuevo calor a la variable "$indice", en éste caso, se le restará un valor de "2", "$indice: $indice - 2;", a la varaible para que así, cada vez que se repita ó ejecute el bucle "@while", la variable valga cada vez menos y así, el bucle pueda tener fin
+
+
+		$indice: 6;	
+
+		@while $indice > 0 {
+
+		.nvc-#{$indice} 
+
+			{ width: 2em * $indice; background-color: purple }
+
+		$indice: $indice - 2;
+
+		}
+
+
+	_de ésta manera, puede entenderse que el valor que hemos asignado a la variable que hemos creado, en éste caso la variable "$indice", será comparado para ver si éste es mayor ">", que el valor "0", en éste caso
+
+	_y si es así, si el valor de la variable "$indice", es mayor en éste caso que "0", entonces éste valor le será asignado ha los ciclos de selectores css, ha generar hasta que se cumpla la condición del siclo @while
+
+	_y dentro de los selectores css, generados en éste caso ó ejemplo ".nvc-6, .nvc-4, .nvc-2"
+
+	_y a dichos selectores css, generados ó nuevo se les ha agregado los aributos
+
+		_width: 12em;
+  		background-color: purple;
+
+	_donde el el valor de "width", en éste caso es dinámico ya que un valor tomado por la variable en éste caso "$indice", la cuál si valor real es variable ya que éste depende del bucle @whole, respectivo
+
+	_llegando ha tener el atributo "width", valores como "width: 12em, 8em, 4em"
+
+
+	_otra de forma de expresar el bucle "@while", es indicándo directamente el nombre del selectores ha generar de forma directa
+
+	_de ésta manera, en el siguiente ej; estamos indicando que la nueva clase ha generar tendrá el nombre de "-indo", a la cual, sele aplicarán los atributos siguientes expresados
+
+
+		$indice: 6;	
+
+		@while $indice > 0 {
+
+		.indo 
+
+			{ width: 2em * $indice; background-color: purple }
+
+		$indo: $indo - 2;
+
+		}
+
+
+	_ahora vamos ha crear un ejemplo donde prodremos aplicar éste sistema ha elementos html, existentes
+
+
+		$hijos: 1;
+
+		@while $hijos <=10{
+
+			.nvc:nth-child(#{$hijos}){
+
+				background-color: purple;
+
+				width: $hijos;	
+			}
+
+		$hijos: $hijos + 1;
+
+	
+		}
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

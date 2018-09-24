@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 8 - Extender Estilos con extend y Placeholder - Curso Básico de Sass | https://www.youtube.com/watch?v=THOr6_QKt-Q&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=8
+
+
+
+	Placeholder:
+	____________
+
+	_sass, permite la creación de selectores "placeholder", ó lo que podríamos entender como proxis
+
+	_de ésta manera, podremos crear selectores genéricos con aitrubos varios los cuales podremos utilizar de proxis para ser llamados por ejemplo por la función interna de sass, "@extend"
+
+	_para que así, de ésta manera, el selector "placeholder", ó proxi, no sea renderizado en el preprocesado del css, realizado por sass, si no que simplemente serán renderizados los atributos utilizados en los selectores de destino en el documento css, generado por el preprocesado realizado por sass
+
+
+	Creación de un Placeholder:
+	___________________________
+
+	_para crear un selector scss, ó de tipo sass, exclusivo debemos de hacer uso de el ícono espacial ó reservado porcentaje "%"
+
+	_y seguido al ícono de porcentaje, debemos de asignarle al nuevo selector un nombre característico ó descriptivo
+
+	_y éste debe de estar seguido por dos llaves en las cuáles enunciaremos las expresiones de tipo atributos css
+
+
+		_%cabeceras{
+			font-family:helvetica,arial, sans-serif;
+			font-size:1.5rem;
+			color:#fff;
+		}
+
+
+	Llamar un Selector Placeholder:
+	________________________________
+
+	_y para llamar ó hacer uso de un selector de tipo placeholder, de sass, debemos hacer uso de por ejemplo de la función interna de sass, "@extend:", ej:
+
+		h1,h2,h3{
+			@extend: %cabeceras;
+		}
+
+	_de ésta manera, ahora a todos los selectores en éste caso "h1,h2,h3", se les aplicarán todos los atributos existentes dentro del selector placeholder, ó proxi, en éste caso "%cabeceras"
+
+	_sin que el selector placeholder, en éste caso "%cabeceras", propiamente dicho sea renderizado ó renderizado en el documento css, generado y compilado por sass
+
+	_más los atributos suministrados por éste selector placeholder, en éste caso "%", si son renderizados ó preprocesados por sass, en los diferentes selectores en los que se haya aplicado a través, de funcioanes como "@extend", u otros
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

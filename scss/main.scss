@@ -1,0 +1,17 @@
+
+//sass --watch main.scss:../css/main.css --style expanded + enter
+
+//includes
+@import "_mobile.scss";
+
+body{
+	background-color: #222;
+}
+
+
+// mobile media querie
+	@mixin mobile{
+		@media (max-width:480px){
+			@content;
+		}
+	}

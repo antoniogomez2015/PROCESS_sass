@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 4 - Anidación de Código (Nesting) - Curso Básico de Sass | https://www.youtube.com/watch?v=8g5DqFYyQHw&t=702s
+
+
+
+	Nesting ó Código Anidado:
+	_________________________
+
+	_sass, permite la animación de código css, es decir, estructurar ó meter etiquetas ó selectores dentro de otros, al mismos modo como lo hace el "html"
+
+	_para que así, de ésta manera, podamos anidar ó hacer selectores padre e hijos a través, de éste modo ó método sass, realiza las identaciones
+
+	_ésto nos pemrite tener un código mucho más estructurado, entendible e intuitivo
+
+
+
+	Anidación de Selectores:
+
+	_en sass, podemos anidar selectores para estructurar mejor el código css, y crear un relacionamiento ahora creando padres y hijos relacionados
+
+	_así, como también, ésto nos ayudará ha generar menos código al no tener que expresar los estilos en cascada, ej (header div h1...)
+
+	_si no que ahora, el relacionamiento en cascada que realiza internamente dentro de un mismo elemento el cuál, podrá contener ha otros elementos dentro, evitando así, el remarcado de etiquetas en cascada, ej:
+
+		_css plano:
+
+			header{
+				width:100%;
+				height:auto;
+				background-color:#333;
+	
+			}
+
+				header h1{	
+					font-family:helveica.arial,sans-serif;	
+				}
+
+
+		_css con sass:
+
+
+			header{
+				width:100%;
+				height:auto;
+				background-color:#333;
+
+					h1{
+						font-family:helveica.arial,sans-serif;	
+					}	
+
+			}	
+
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

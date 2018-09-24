@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 6 - Las Variables - Curso Básico de Sass | https://www.youtube.com/watch?v=fjJVQSb_mVw&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=6
+
+
+
+	Variables:
+	__________
+
+	_sass, permite la creación y utilización de variables para aumentar la posibilidades del css, dinámico
+
+	_de ésta manera, podremos crear varaibles, las cuáles nos permitirán guardar ó almacenar un selector css, y sus respectivos atributos que éste tenga asignados
+
+	_lo cuál implica una serie de ventajas ya que podremos aplicar ó llamar un sin número de veces ésta variable en el proyecto web
+
+	_lo que implicaría posteriormente que tan sólo al cambiar los atributos de los elementos que conforman la variable, éstos se actualizarían en todos los elementos que contengan ésta variable llamada, lo cuál, aumenta la productividad en gran manera
+
+
+	Creación de Variable:
+
+	_así, para crear una variable tendremos que hacerlo a través, del signo de dolar "$", seguido del nombre que deseamos asignarle a la variable más dos puntos ":", ej
+
+		_$miVariable:
+
+
+	_y a dicha variable debemos asignarle un valor y dichos valores será atributo css, ej:
+
+		_$miVariable: 1.5rem;
+
+
+
+	Variable Date:
+
+	_las variables en sass, permiten los siguientes tipos de datos:
+
+		_número enteros: (1,2,3,4,5,6px)....;
+
+		_cadenas de  string ó texto: (tony);
+
+		_colors, colorers: (blue, #fff, rgba(0,0,0,.5))
+
+		_booleans: (true/false)
+
+		_nulls: (null)
+
+		_lista de valores separados por espacio y comas: (1.5em 2em 0em 3em, helvetica arial sans-serir)
+
+		_mapas de un valor ha otro valor: (key1: valur 1, key2:value 2)
+
+
+
+	Creación de Varaibles:
+
+	_a través, de las variables podremos crear los estilos base del sitio web, para la gestión atributos, de forma práctiva y automatizada y dinámica
+
+	_para lo cuál, debemos crear variables en las cuales debemos guardar ó almacenar atributos css, los cuales podremos utilizar en diferentes selectores de forma sincronizada
+
+	_y para crear ó "declarar un variable" en sass, debemos hacer uso del ícono reservado "$", dolar, seguido de un nombre descriptivo personalizado para identificar la varible
+
+	_lo cuál, debe de seguir por dos punto ":", los cuáles harán de signo de asignación
+
+	_para a continuación asignarle un valor a la variable ó "inicializar la variable"
+
+		$colorBase: #451124; 
+
+
+
+	Utilización de la Variable:
+
+	_y para utilizar ó llamar a las variables, debemos sustituir valores existente en propiedades por las respectivas variables para que así, las variables hagan el efecto de los respectivos valores
+
+	_con la diferencia de que el contenido almacenado en las variables es dinámico y replicable en cuantas veces hayamos llamado ha una variables respectiva ej:
+
+
+	_ejemplo sin variables sass:;
+
+
+		_header{
+			width: 100%;
+			height: auto;
+			background-color: red;
+			margin: auto;
+		}
+
+		aside{
+			width: 100%;
+			height: auto;
+			background-color: red;
+			margin: 0px;
+		}
+
+	_ejemplo con variables sass:;
+
+
+		_header{
+			width: 100%;
+			height: auto;
+			background-color: $colorBase;
+			margin: auto;
+		}
+
+		aside{
+			width: 100%;
+			height: auto;
+			background-color: $colorBase;
+			margin: 0px;
+		}
+
+
+	_de ésta manera, podremos ver que sustituyendo los valores en éste caso "red", aplicados en éste caso al atributo "background color:", en ambos selectores aunque podrían aplicar en distintos atributos
+
+	_podremos ver entonces que el color ó valor almacenado en la respectiva variable es aplicado a los atributos más el plus de que ahora el contenido del respectivo valor ahora es dinámico al pertenecer éste a la variable instanciada
+
+
+
+	Aplicaciones útiles:
+
+
+	Variables Numéricas:
+
+	_por ejemplo la utilización de variables con valores numéricos es especialmente útil para casos en los que sería muy útil poder graduar de forma dinámica el ancho de contenedores para proyectos responseves
+
+	_de ésta manera, podremos graduar el comportamiento de forma masiva de toda la interface, de forma interactiva
+
+	_de ésta manera, podríamos hacer una variable para capturar el ancho en porcentaje para un "100%", por ejemplo, y para un tipo de elemento html, ó contenedor para que así, vayamos hacendo variables para los diferentes estándares y tamaños de las diferentes partes y elementos de la interface, del proyecto y versión del sitio web, como movile first, y tablets, ej:
+
+		$wrapperDinamico: 100%; 
+
+		$postDinamico: 100%;
+
+		_wrapper{
+
+			width: $wrapperDinamico;
+	
+		}
+
+	_así, a través, de media queries, y entre otras posibilidades por ejemplo podríamos hacer cambiar el valor de las variables para que así, éstas actualizen todas sus respectivas instancias de forma dinámica
+
+
+
+	Operaciones Aritméticas y Matemáticas:
+
+	_también, a través, de las variables en sass, podremos hacer operaciones matemáticas ó aritméticas para así, cambier ó alterar si valor de forma logarítmica ó exponencial
+
+	_y dichas operaciones aritméticas ó matemáticas las podemos realizar en donde tengamos inicializada la respectiva variable
+
+	_así, como también, podremos hacer éstas operaciones aritméticas ó matemáticas en una ó varias de las instancias de las variables aplicadas ó llamadas como valores en atributos determinados en uno ó mas selectores respectivos
+
+	_y ésto es posible a través, de los signos de aritmética convencionales en cualquier lenguaje de programación, como los son:
+
+		_suma: +
+
+		_resta: -
+
+		_multiplicación: *
+
+		_división: /
+
+
+	_ejemplo de una operación aritmética ó matemática:
+
+
+		_$wrapperDinamico: 100% / 2; 		
+
+		_wrapper{
+
+			width: $wrapperDinamico;
+	
+		}
+
+		_de ésta manera, siguiendo el ejemplo de arriba, el contenedor principal del sitio web, se dividirá en 2, haciando el sitio web, a la mitad de su tamaño de forma dinámica
+
+
+		Tipos de variables aplicada:
+		____________________________
+
+			_$div-name: test-img; //variable con valor string, puede llevar comillas ó nó
+
+			_$fontsize: font-size; //valor string, que se interpretará con atributo css
+
+		_así, como también, sass, permite la creación de "listas", lo cuál, permite agrupar valor en lista, especialmente para atributos con valores mútilples ej:
+
+			_$misFuentes: helvetica, arial, sans-serif;
+
+		_de ésta manera, podremos ver como ahora la variable "$misFuentes", ahora tiene tres valores diferentes
+
+		_así, como también, sass, permite la creación de mapas, lo cuál, no es más que listas de listas para solventar casos en css, como fondos múltiples y animaciones complejas
+
+		_los mapas son unos tipos de arrays, asociativos ej:
+
+			_$misMapas: (rojo: red, azul: blue, naranja: orange);
+
+
+
+	Variables Operaciones especiales:
+	_________________________________
+
+	_sass, dispone de unas funciones prefedinidas a través, de las cuáles, tenemos la posibilidad de indicarle a la hora de declarar un variar
+
+	_de ésta manera, podremos indicarle ha sass, que si la variable que estamos declarando tiene algún no le aplique el valor que le estamos indicando en el momento de llamar ha la variable respectiva nuevamente
+
+	_de ésta manera, a través, de la palabra clave "!default", le estamos indicando ha sass, que si la variable respectiva tiene algún por previo le aplique entonces éste como su valor por defecto ej:
+
+		_$miVaraible: tony;
+
+		_$miVariable: jerson !default;
+
+	_
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

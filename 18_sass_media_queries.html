@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<style type="text/css">
+
+	/*
+
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 4 - Directiva de control For - Curso Básico de Sass | https://www.youtube.com/watch?v=41fYwyzNpWk&index=16&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+		Listas:
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+
+
+		Functions References:
+
+			https://www.sitepoint.com/sass-basics-function-directive/
+
+
+		Tutorial:
+
+			11 - Los Media Queries - Curso Básico de Sass
+
+				https://www.youtube.com/watch?v=crwsO3iXGRM
+
+
+
+	Media Queries en Sass:
+	______________________
+
+	_tenemos la posibilidad de crear una estructura de css, específica por componente ó por dispositivos
+
+	_para lograr así, un mayor control en el desarrollo y mantenimiento de un proyecto completo a través, de sass, y el uso de mixins, y media queries
+
+
+
+	Condicionales Dinámicos:
+	________________________
+
+	_primeramente veremos como hacer que los anchos condicionantes para cada dispositivo sea dinámicos a través, de variables, ej:
+
+
+		//creación de variables
+
+			$mobile: "(max-width: 480px)";
+			$tablet: "(mix-width: 480px) and (max-width: 720px)";
+			$desktop: "(mix-width: 1024px)";
+
+
+
+		//creación de media queries dinámicos:
+
+			@media #{$mobile}{
+				font-size: 1.2rem;
+				color: green;
+		
+			}
+
+			@media #{$tablet}{
+				font-size: 1.0rem;
+				color: red;
+		
+			}
+
+			@media #{$desktop}{
+				font-size: 1.5rem;
+				color: blue;
+		
+			}
+
+	_de ésta maenra, de forma externa podremos controlar las catacterísticas de los dispositivos a través, de estructuras de control más complejas y sostenibles a través, de las variables
+
+
+
+
+	Media Queries con Mixins:
+	_________________________
+
+
+	Declarar el Media Querie:
+	_________________________
+
+	_donde primeramente debemos de crear un @mixin, para cada media querie, que desiemos representar para cada dispositivo, y dentro de éste; debemos de expresar la media querie, respectiva ej:
+
+
+		@mixin mobile {
+			@media (min-width: 480px) and (max-width: 720px){
+				@content;
+			}	
+		}
+
+
+	_y a su vez, dentro del media querie, debemos de agregar la palabra reservada "@content", la cuál, hara referencia al contenido instanciado de éste mixin, de forma externa
+
+	_lo que quiere decir es que el contenido instanciado será el contenido que será tomado en cuenta por el media querie, que lo contiene
+
+
+
+	Instanciar el Media Querie:
+	___________________________
+
+	_de ésta manera, podremos hacer un llamado del mixin, que hemos creado con la media querie respectiva mientras que a su vez, le agregamos selectores y elementos css, definidores del contenido html, ha controlar, ej:
+
+
+		@include mobile {
+			font-size: 1.5rem;
+			color: orange;
+		}
+
+
+
+
+
+	*/
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" contenido="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" contenido="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style contenido="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 13 - Directivas de control If y Else - Curso Básico de Sass | https://www.youtube.com/watch?v=QWfLf6vDri0&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=13
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+
+
+	Condicional IF(){}:
+	___________________
+	
+	_sass, nos permitirá la creación de estructuras complejas de css, a tavés, del uso de condicionales los cuáles nos permitirán hacer css, interactivo por medio de la interacción del usuario a través, de eventos
+
+	_de la misma forma como hacemos en javascript, y otros lenguajes, de ésta manera, éstas estructuas de condicionales las podremos conbinar con variables, mixin, y extend, otros elementos que hemos visto hasta ahora
+
+	_en sass, para crear una estructura condicional if, debemos hacerlo de la siguiente manera:
+
+		_@if{}
+
+	_primero debemos hacer uso del ícono arroba "@"
+
+	_y seguidamente prescindiendo del paréntesis que normalmente reciben los argumentos en lenguajes como javascript, y otros, expresando así, los argumentos directamente sin la necesidad de separar éstos en paréntesis
+
+	_así, como también, para hacer los diferentes tipos de comparativas los condicionales if{}, hacen uso de los signos de comparación de javascript, y otros lenguajes, como los son: "==", igual igual, ">", mayor que "<", menor que entre otros
+
+	_para enunciar un condicional if{}, debemos de incorporar éste como un atributo css, dentro de una regla ó selector css, respecto
+
+	_en el siguiente ejemplo combinamos la utilización del condicional if{}, con el uso de variables para lograr un gran performance y control sobre las estructuras css
+
+		_$miVariable: level1;
+
+			#contenido{
+			  @if $contenido == ocean{
+			    color: blue;
+			  } @else if $contenido == level1{
+			    color: red;
+			  } @else if $contenido == monster{
+			    color: green;
+			  } @else {
+			    color: black;
+			  }
+			}
+
+	_así, como también, si se cumple el condicionale en vez de directamente incluir atributos podríamos incluir entre las llaves, del condicional varaibles y mixins, para aumentar aún más las posibilidades de los condicionales
+
+	
+
+
+
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

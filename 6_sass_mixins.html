@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 7 - Los mixins - Curso Básico de Sass | https://www.youtube.com/watch?v=KOTOHscHjXs&index=7&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+
+
+	Mixins:
+	_______
+
+	_sass, permite la creación la reutilización y repetición de código a través, de las función interna "mixins"
+
+	_ésto es especialmente útil para cuando repetimos gran cantidad de código css, en nuestro proyectos web
+
+
+	Definir un MIxins:
+
+	_para definir un mixins, debemos hacer uso del ícono arroba "@", seguido de la palabra clave "mixin", y seguido ha éste un nombre característico y descriptivo para personalizar y reconoces el mixin, respectivo, y seguido de éstos dos llaves entre las cuáles irá el contenido ó atributos y valores ha almacenar ej:
+
+		_@mixin titulo_1{
+			margin: 0 0 20px 0;
+			font-family: hevetica,arial,sans-serif;
+			font-size: 2rem;
+			font-weight: bold;
+			text-transform: uppercase;
+	
+		}
+
+	_así, como también, sass, nos permite expresar los atributos de un mixin, de forma agrupara ej:
+
+		_@mixin special{
+			font:{
+				size: 22px;
+				weight: bold;
+				family: Curier;
+			}
+			color:red;
+		}
+
+	_incluso, tendremos la posibilidad de agregar dentro de la declaración de un mixin elementos que hagan referencia al padre, como un pseudo elemento por ejemplo entre otros ej:
+
+		@mixin aviso{
+			text-align: center;
+			background-color: #aaa;
+
+			&:hover{
+				background-color: #eee;
+			}
+		}
+
+		_de ésta manera, cuando se haga el llamado de éste mixin, se crearán dos selectores, uno para el selector propiamente dicho y otro selector para el modo de pseudo elemento en éste caso "selector:hover", con sus respectivos atributos para cada uno de étos selectores generados
+
+
+	_ésta modalidad es especialmente útil para signar elementos repetitivos como títulos y sub-titulos de un mismos nivel entre otros
+
+
+
+	Llamar un Mixin:
+
+	_para llamar un mixin, en un selector determinado debemos de hacer uso de la funció interna "@include", más el nombre del mixin, ha incluir, en el caso del ejemplo anterior sería "@include titulo_1", ej:
+
+		section h1{
+			@include titulo_1;
+			color orange;	
+		}
+
+	_de ésta manera, en el selector "h1", se estará incluyendo ó atirbutos y valores guardados previamente en el mixin, "titulo_1", que hemos creado e inicializado previamente en los pasos anteriores con tan sólo llamar ha éste mixin, respectivo en un selector css
+
+	_incluso tendremos la posibilidad de hacer llmados de super mixins, ó mixins, compuestos por otros mixins, lo cuál, amplía las posibilidades de acción y de complejidad en las posibilidades de css, y el preprocesador sass ej:
+
+		_//mixins
+
+		_#mixin special{
+			font:{
+				size: 23px;
+				weight: bold;
+				family: Courier;
+			}
+			color: red;
+		} 
+
+		@mixin aviso{
+			text-align: center;
+			background-color: #aaa;
+
+			&:hover{
+				background-color #eee;
+			}
+		}
+
+
+		_//super mixin
+
+		@mixin supermixin{
+			@include aviso;
+			@include special;
+		}
+
+
+		_//llamado del super mixin
+
+		.aviso-ok{
+			@include supermixin;
+			border: 1px solid black;
+		}
+
+
+
+
+
+
+	Función Mixin con Parámetros:
+	_____________________________
+
+	_las aún la función mixin, nos permite cambiar valores de determinados atributos incluidos dentro del mixin
+
+	_para que así, a través, de variables creadas pero no inicializadas como valores de parámetros dentro de la función mixin, podremos hacer éstos valores dinámicos
+
+	_de ésta manera, a la función mixin, que hemos creado, ahora tendremos que agregarle al final dos paréntesos dentro de los cuáles la función mixin, podrá recibir las variables requeridad ej; "@mixin titulo_1(){}" 
+
+	_más también, tendremos la posibilidad de agregarle parámetros directamente a las variables creadas como argumentos de la función mixin, con el objetivo de que éstos valores que le asignemos a las variables creadas y ahora inicializadas y que son pasados como parámetros a la función mixin, sirvan de valor base en los casos en que cuando llamenos a la función mixin, respectiva y no le pasemos argumentos como parámetros, para que así, en éstos casos la función mixin, tome como argumentos los asignados al inicializar la  respectivas variables
+
+	_así, como también, tendremos que agregar los paréntesis al llamar la función mixin, respectiva, ya que es a través, de éstos paréntesis es que podremos introducir los argumentos que personalizarán éstos valores alterando los valores globales de los atributos respectivos de la función mixin, respectiva, siguiendo en el mismo ejemplo y mixin, creado  más arriba:
+
+
+		_@mixin titulo_1($fontSize, $FontWeight){
+			margin: 0 0 20px 0;
+			font-family: hevetica,arial,sans-serif;
+			font-size: $fontSize;
+			font-weight: $FontWeight;
+			text-transform: uppercase;
+	
+		}
+
+		_section h1{
+			@include titulo_1(3rem, 800);
+			color orange;	
+		}
+
+
+	_de ésta manera, al utilizar las funciones mixin, con la asignación de parámetros ahora podremos personalizar ciertos valores de algunos atributos que desiemos personalizar en los selectores en los cuáles hemos llamado la función mixin 
+
+	_de ésta manera, podremos hacer flexible el contenido de la ó valores de atributos dentro de la función mixin
+
+	_así, como también, hacer flexible y personalizable los valores de atributos similares en los selectores sobre los cuáles hemos llamado la función mixin, ahora con parámetros
+
+
+
+	Mixins con Parámetros Ejemplo Simple:
+	_____________________________________
+
+		_//mixin
+
+		_@mixin rounded($radius){
+			border-radius: $radius;
+			-webkit-border-radius: $radius;
+			-moz-border-radius: $radius;
+			-o-border-radius: $radius;
+		}
+
+		_//llamada del mixin
+
+		.aviso-error{
+			@include rounded(5px);
+		}
+
+		_de ésta manera, podremos ver que el valor que indicamos como parámetro en la llamada del mixin, es es recibido como parámetro en el mixin, mismo y a su vez, éste lo pasa como valor en la misma variable utilizada como valor "$radius", en los atributos dentro del mixin
+
+
+
+		_//preprocesado css, con sass
+
+		.aviso-error{
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-o-border-radius: 5px;			
+		}
+
+
+	_así, como también, los mixins, pueden tener parámetro aplicados por defecto con sus repectivos valores por defecto ej:
+
+		_//mixin
+
+		_@mixin rounded($radius: 5px){
+			border-radius: $radius;
+			-webkit-border-radius: $radius;
+			-moz-border-radius: $radius;
+			-o-border-radius: $radius;
+		}
+
+	_para que así, cuando se haga la llamada al mixin, se sea imprescindible tener que pasarle parámetros si no que éstos sean opcionales
+
+	_y siguiendo en el mismo ejejmplo de arriba, al llamar ha un mixin, el cuál, tiene parámetros definidos con valores por defecto así, también, podremos en éste caso variar ó alternar la posición de los parámetros suministrados
+
+	_ya que también, podremos enviarle parámetros identificados con el nombre de la variable aconmpañado de su respectivo nuevo valor ha asignale al mismo ej:
+
+		_//llamada del mixin
+
+		.aviso-error{
+			@include rounded($radius: 5px, $radius2: 10px,);
+		}
+
+
+
+	Mixin con Parámetro Extendidos:
+	_______________________________
+
+	_también, tendremos la posibilidad de extender la posibilidad de un mixin, de recibir parámetros ej:
+
+		_@mixin rounded($radius, $size, $args...){
+			border-radius: $radius;
+			-webkit-border-radius: $radius;
+			-moz-border-radius: $radius;
+			-o-border-radius: $radius;	
+
+			&:after{
+				content: $args;
+			}
+		}
+
+	_de ésta manera, como pordremos ver, el último argumento que le estamos asignando al mixin, está seguido de tres puntos suspensivos
+
+	_de ésta manera, ésta última variable en éte caso "$args...", recibirá todos éstos últimos argumentos adicionales que se indiquen a partir del tercer argumento en éste caso
+
+	_lo indicará que éste mixin, podrá recibir más de tres parámetros de ser requerido a la hora de llamar ha éste mixin ej:
+
+		_//llamada del mixin:
+
+		.aviso-error{
+			@include rounded(5px, 2px, 'ésto es', 'otra cosa');
+		}
+
+	_lo cuál, renderizará ó preprocesará el siguiente css, sass:
+
+		_.aviso-error{
+			border-radius: 5px 2px;
+			-webkit-border-radius: 5px 2px;
+			-moz-border-radius: 5px 2px;
+			-o-border-radius: 5px 2px;	
+		}
+
+		_.aviso-error:after{
+			content: "éssto es", "otra cosa";
+		}
+
+
+
+	Creando Selectores con Mixins:
+	______________________________
+
+	_tmabién, tendremos la posibilidad de crear nuevos selectores a partir de un mixin, con una configuración determinada a través, de la cuál, éste podrá hacer referencia ha una determinada condición como por ejemplo para viajos navegadores entre otras posibilidades de aplición ej:
+
+		_//mixin, con configuración especial
+
+		_@mixin videjos-navegadores{
+			html.old &{
+				@content;
+			}
+		}
+
+		//llamada especial al mixin
+
+		header{
+			color: #333;
+
+			@include viejos-navegadores{
+				background-color: red;
+
+				.extra{
+					text-align: center;
+				}
+			}
+		}
+
+		_de ésta manera, podremos ver que sass, en éste caso habrá generado tres selectores diferentes para cada tipo de contenido ej:
+
+			_header{
+				color: #333;
+			}
+
+			html.old header{
+				background-color: red;
+			}
+
+			html.old header .extra{
+				text-align: center;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

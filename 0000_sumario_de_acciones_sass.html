@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sumario de Acciones Sass</title>
+
+	<style type="text/css">
+
+
+	/*referencia: Introducción a Sass | https://www.youtube.com/watch?v=xu0lVyrA8Y0*/
+
+	/*Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI*/
+
+
+
+	/*
+
+	_sitio oficial: http://sass-lang.com/
+
+		Sass en Español:
+			https://sass-guidelin.es/es/
+
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+
+
+
+	Correr Sass:
+	____________
+
+	_no es prelativo tener que correr sass, con algún pre procesador como grunt, ó gulp, podremos hacerlo directamente con la línea de comando ó símbolo del sistema
+
+	_para lo cuál, sólo tendremos que navegar hasta la ubicación del proyecto a través, de la línea de comandos ej:
+
+		_"c:\Users\mono>cd c:\xampp\htdocs\citaMedica\src\scss>", + "enter"
+
+			 c:\xampp\htdocs\citaMedica\src\scss>
+
+
+	_y una vez en la ubicación del proyecto debemos de arrancar sass, para que así, éste esté pendiente de los cambios en el archivo scss, y lo pre procese ha css
+
+	_de ésta manera, en el siguiente comando le estaremos indicando ha sass, que vigile al archivo en éste caso "main.css", y que luego si encuentra cambios entonces lo pre procese y lo renderice en la siguiente ubicación
+
+
+		_"sass --watch main.scss:../../dist/css/main.css", + "enter" 
+
+
+	_de ésta manera, a partir de éste punto sass, creará los siguientes archivos en la ruta indicada y ya esremos listos para trabajar ya que sass, estará pendientes de los cambios realizados
+
+
+		_>>>Sass is watching for changes. Press Ctrl-c to stop.
+			directorio css
+				write ../css/main.css
+				write ../css/mainn.map
+
+
+
+
+
+
+	Ruby y Sass:
+	____________
+
+	_primeramente, debemos de tener instalado tanto "Ruby", como "Sass", para poder así, comenzar con el proceso de compilado de css, a través, de sass
+
+
+
+	Arrancar Sass:
+	______________
+
+	_para una mayor practicidad es altamente recomendable en la parte superior de la hoja de estilos sass, ó la hoja generada css, tener ya enunciada la conexión de sass, con nuestro proyecto
+
+	_para que así, de ésta manera, solo sea de copiar y pegar éste código en la línea de comandos de windows, cada vez que vayamos ha trabajar en cada proyecto respectivo
+
+	_así, primero debemos de abrir la terminal ó línea de comandos de windows, yendo ha "inicio/CMD + Enter"
+
+	_para luego escribir "cd ", para luego navegar hasta la carpeta del proyecto correspondiente a la ubicación del proyecto mismo ó de la ubicación del archivo sass ".scss", para luego hacer "enter", para que así, el sistema navega hasta la respectiva ubicación
+
+	_para luego, tipear ó pegar el comando de conexión, el cuál en éste caso es el siguiente:
+
+		_"sass --watch main.scss:../css/main.css  --style compressed", + "Enter"
+
+		NOTE: de ésta manera, tendremos los siguientes estilos disponibles; "nested, expanded, compact, ompressed"
+
+	_para que así, sass, realize la conexión con el proyecto respectivo y esté listo para trabajar y compilar el css
+
+
+	
+	Hoja de Estilos:
+	________________
+
+	_cuando ya hemos generado un proyecto sass, y hemos activados éste a través, de la consola ó línea de comandos de windows, ahora debemos de relacionar la hoja de estilos generada y preprocesada por sass, con nuestro codumento html, respectivo de nuestro proyecto, ej:
+
+
+		_<!--css preprocesado por sass-->
+		_<link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+	_para que así, los cambios del código css, generado ó preprocesado por sass, sea cargado y refrescado automáticamente en el proyecto web
+
+
+	----------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------
+
+	Sumario:
+	________
+
+		_Variables:
+
+			_éstas nos permiten almacenar un valor para su reutilización posterior
+
+				_Definición:
+
+					_$miVariable: 1.5rem;
+
+				_Llamado:
+
+					_header{
+						width: 100%;
+						height: auto;
+						background-color: $colorBase;					
+					}
+
+
+		_Interpolación de Variables:
+
+			_Definición: (Variables como Atributos)
+
+				_variables:
+					_$color: red;
+					_$ancho: width:;
+
+				_#contenedor{
+					color: $;
+					#{$ancho}: 100%;	
+				}
+
+			_Definición: (Variables como Selector)
+
+				_variables:
+
+					_$miSelector: "h1";
+					_$color: red;
+					_$ancho: width: 50%;
+				
+
+				_#{$miSelector}{
+					color: $color;
+					#{$ancho}: 100%;	
+				}
+
+			_Definición: (Variables como Ruta de Archivo)
+
+				_$image1: producto1;
+
+				_#cotenedor{
+					background-image: url(source/img/#{$image1}.png);
+				}
+
+
+		_Mixins:
+
+			_éstos nos permiten la reutilización de grandes contenidos de código css
+
+				_Definición:
+
+					_@mixin titulo_1{
+						margin: 0 0 20px 0;
+						font-family: hevetica,arial,sans-serif;
+						font-size: 2rem;
+						font-weight: bold;
+						text-transform: uppercase;
+				
+					}
+
+				_Llamado:	
+
+					section h1{
+						@include titulo_1;
+						color orange;	
+					}
+
+		_Extends:
+
+			_éstos nos permiten extender selectores para reutilizar éstos en otros ha modo de suma de selectores
+
+				_Definición:
+
+					_section{
+							width:100%;
+							height:auto;
+							border: 1px solid red;							
+						}
+
+				_Llamado:
+
+						_footer{
+							@extend section;
+							background-color: purple;
+						}
+
+
+		_Placeholder:
+
+			_éstos nos permiten crear selectores genéricos ó proxis para su utilización múltiple ó global
+
+				_Definición:
+
+					_%cabeceras{
+						font-family:helvetica,arial, sans-serif;
+						font-size:1.5rem;
+						color:#fff;
+					}
+
+				_Llamado:	
+
+					h1,h2,h3{
+						@extend: %cabeceras;
+					}
+
+
+		_Condicional IF(){}:
+
+			_Definición:
+
+				#contenido{
+				  @if $contenido == ocean{
+				    color: blue;
+				  } @else if $contenido == level1{
+				    color: red;
+				  } @else if $contenido == monster{
+				    color: green;
+				  } @else {
+				    color: black;
+				  }
+				}
+
+
+		_Buble While:
+
+			_Definición:
+
+				$indice: 6;	
+
+				@while $indice > 0 {
+
+				.nvc-#{$indice} 
+
+					{ width: 2em * $indice; background-color: purple }
+
+				$indice: $indice - 2;
+
+				}
+
+
+		_Bucle Each:
+
+			_Definición:
+
+				<div id="proof">
+							<div class="iconoA">nuevos iconos</div>
+							<div class="iconoB">nuevos iconos</div>
+							<div class="iconoC">nuevos iconos</div>
+							<div class="iconoD">nuevos iconos</div>
+							<div class="iconoE">nuevos iconos</div>
+							<div class="iconoF">nuevos iconos</div>				
+					</div>	
+
+
+				@each $var in iconoA, iconoB, iconoC, iconoD, iconoE, iconoF{
+
+					#proof .#{$var}{
+
+						
+						background-image: url("../source/img/#{$var}.png");
+						
+					}
+				}
+
+
+		_Bucle For:
+
+			_Definición:
+
+				<div id="revel">
+					<div class="cast1">El Junior</div>
+					<div class="cast2">El Junior</div>
+					<div class="cast3">El Junior</div>
+					<div class="cast4">El Junior</div>
+					<div class="cast5">El Junior</div>
+					<div class="cast6">El Junior</div>
+				</div>	
+
+
+				@for $aver from 1 through 6{
+
+					.cast#{$aver}{
+
+						width: 10px * $aver;
+
+						color: #785 + $aver;
+
+					}
+					
+				}
+
+
+
+	----------------------------------------------------------------------------------
+	----------------------------------------------------------------------------------
+
+
+
+
+
+	Estructuras de Control Sass:
+	____________________________
+
+
+
+	Palabras Reservadas:
+	____________________
+
+		&:
+
+			_ésta hacer referencia al elemento padre inmediato
+
+
+
+	Variables:
+	__________
+
+	_así, para crear una variable tendremos que hacerlo a través, del signo de dolar "$", seguido del nombre que deseamos asignarle a la variable más dos puntos ":", ej
+
+		_$miVariable:
+
+
+	_y a dicha variable debemos asignarle un valor y dichos valores será atributo css, ej:
+
+		_miVariable: 1.5rem;
+
+
+		$color1: "#452";
+
+		$color2: "#325";
+
+
+		section{
+			backgorund-color: $color1 + $color2;
+		}
+
+		_header{
+			width: 100%;
+			height: auto;
+			background-color: $colorBase;
+			margin: auto;
+		}
+
+
+
+
+	Mixins:
+	_______
+
+	_sass, permite la creación la reutilización y repetición de código a través, de las función interna "mixins"
+
+	_ésto es especialmente útil para cuando repetimos gran cantidad de código css, en nuestro proyectos web
+
+
+	Definir un MIxins:
+
+	_para definir un mixins, debemos hacer uso del ícono arroba "@", seguido de la palabra clave "mixin", y seguido ha éste un nombre característico y descriptivo para personalizar y reconoces el mixin, respectivo, y seguido de éstos dos llaves entre las cuáles irá el contenido ó atributos y valores ha almacenar ej:
+
+		_@mixin titulo_1{
+			margin: 0 0 20px 0;
+			font-family: hevetica,arial,sans-serif;
+			font-size: 2rem;
+			font-weight: bold;
+			text-transform: uppercase;
+	
+		}
+
+	Llamar un Mixin:
+
+	_para llamar un mixin, en un selector determinado debemos de hacer uso de la funció interna "@include", más el nombre del mixin, ha incluir, en el caso del ejemplo anterior sería "@include titulo_1", ej:
+
+		section h1{
+			@include titulo_1;
+			color orange;	
+		}
+
+	_//super mixin
+
+		@mixin supermixin{
+			@include aviso;
+			@include special;
+		}
+
+
+		_//llamado del super mixin
+
+		.aviso-ok{
+			@include supermixin;
+			border: 1px solid black;
+		}
+
+	//incluso podremos crear mixins, con parámetros, mirar en "6_sass_mixins.html"
+
+
+
+
+	Extends:
+	________
+
+	_sass, permite la capacidad de extender selectores a través, de otros selectores que ya están definidos en nuestra hoja de estilos sass
+
+	_de ésta manera, podremos aprovechas las cualidades de un selector existente para poderselas aplicar ha otro selector determinado
+
+	_así, de ésta manera, podremos reciclar atributos entre selectores diferentes en sass
+
+
+	_ésta opción es muy similar a la opción de las funciones "mixin", aunque las opciones de "extends", son más limitada que las opciones de "mixin"
+
+
+	Creado un Función Extend:
+	_________________________
+
+	_para crear una función interna de tipo "extend", debemos de hacer uso de la ícono clave "@", 
+
+	_seguido de la palabra clave ó palabra reservada "extend"
+
+	_y seguido a continuación el nombre del selector el cuál queremos replicar ó aplicar ha otro selector, ej:
+
+
+		_section{
+			width:100%;
+			height:auto;
+			border: 1px solid red;
+			padding:3%;
+			background-color: orange;
+		}
+
+		_footer{
+			@extend section;
+			background-color: purple;
+		}
+
+
+	_de ésta manera, ahora el selector "footer", siguiendo el ejemplo de arriba, éste ahora tomará los atributos existentes en el selector "section", y los hará suyos
+
+	_excepto que en el mismo selector en éste caso "footer", existan uno ó más selectores coincidentes ó comúnes entre ambos selectores
+
+	_ésto quiere decir que los atributos css, que se repitan entre ambos selectores tendrán una mayor jerarquía los selectores propios dentro del selector en el cuál, se está haciendo uso ó llamado de la función interana de sass "@extend"
+
+	_ésta es una forma ó modalidad muy práctica en la cuál, podremos replicar sólo algunos de los atributos de algún selector determinado de forma directa y coherente
+
+	_aunque ésta opción no tenga los alcances universales de las opciones de la función sass "mixin", es bastante útil para la mayoría de los cosas convencionales
+
+
+	//también, tendremos la posibilidad de crear extends, extendidos y más complejos ver "7_sass_extend.html"
+
+
+
+	Placeholder:
+	____________
+
+	_sass, permite la creación de selectores "placeholder", ó lo que podríamos entender como proxis
+
+	_de ésta manera, podremos crear selectores genéricos con aitrubos varios los cuales podremos utilizar de proxis para ser llamados por ejemplo por la función interna de sass, "@extend"
+
+	_para que así, de ésta manera, el selector "placeholder", ó proxi, no sea renderizado en el preprocesado del css, realizado por sass, si no que simplemente serán renderizados los atributos utilizados en los selectores de destino en el documento css, generado por el preprocesado realizado por sass
+
+
+	Creación de un Placeholder:
+	___________________________
+
+	_para crear un selector scss, ó de tipo sass, exclusivo debemos de hacer uso de el ícono espacial ó reservado porcentaje "%"
+
+	_y seguido al ícono de porcentaje, debemos de asignarle al nuevo selector un nombre característico ó descriptivo
+
+	_y éste debe de estar seguido por dos llaves en las cuáles enunciaremos las expresiones de tipo atributos css
+
+
+		_%cabeceras{
+			font-family:helvetica,arial, sans-serif;
+			font-size:1.5rem;
+			color:#fff;
+		}
+
+
+	Llamar un Selector Placeholder:
+	________________________________
+
+	_y para llamar ó hacer uso de un selector de tipo placeholder, de sass, debemos hacer uso de por ejemplo de la función interna de sass, "@extend:", ej:
+
+		h1,h2,h3{
+			@extend: %cabeceras;
+		}
+
+	_de ésta manera, ahora a todos los selectores en éste caso "h1,h2,h3", se les aplicarán todos los atributos existentes dentro del selector placeholder, ó proxi, en éste caso "%cabeceras"
+
+	_sin que el selector placeholder, en éste caso "%cabeceras", propiamente dicho sea renderizado ó renderizado en el documento css, generado y compilado por sass
+
+	_más los atributos suministrados por éste selector placeholder, en éste caso "%", si son renderizados ó preprocesados por sass, en los diferentes selectores en los que se haya aplicado a través, de funcioanes como "@extend", u otros
+
+		
+
+	
+
+
+
+
+	*/
+
+
+
+
+	</style>
+</head>
+<body>
+	
+</body>
+</html>

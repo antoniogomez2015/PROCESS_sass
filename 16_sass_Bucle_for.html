@@ -1,0 +1,220 @@
+<!DOCcontenido html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" contenido="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" contenido="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style contenido="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 4 - Directiva de control For - Curso Básico de Sass | https://www.youtube.com/watch?v=41fYwyzNpWk&index=16&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+		Listas:
+			http://marioaraque.com/como-usar-listas-sass
+			http://marioaraque.com/sass-control-directives
+			http://librosweb.es/libro/sass/capitulo_8.html
+
+
+
+	Bucle For:
+	__________
+	
+	_sass, y las directivas en éste caso el ciclo "for", nos permitirá la generación de css, repetitivo y logarítmico por medio de las iteraciones a través, de loops, ó bucles
+
+	_lo cuál, nos permitirá por ejemplo la asignación de selectores css, ha una serie de elementos html, en serie; por ejemplo; "miClase1,2,3,4,5..", a los cuales deseamos por ejemolo agregarle un selector como una "clase", "class="", ó un identificador "id=""
+
+	_y a su vez, agregarle ha éstos selectores css, que hemos creado de forma automática y dináimca varios atributos que desemoas que todos éstos selectores  tengan en común, todos éstos nuevos selectores los cuáles se le aplicarán a sus respectivos elementos html
+
+	_de ésta manera, nos ahorraremos tener que crear estilos para todos éstos elementos html, y sobre todo que tendremos la posibilidad de que al cambiar los atributos y valores del ciclo for, todos éstos elementos se cambiarán y actualizarán de forma automática y dinámica por nosotros
+
+
+
+
+	Creación de Ciclo For:
+
+	_para la creación de un ciclo form debemos hacer uso del ícono "@", seguido de la palabra reservada "for", la cuál, representará a la directva for, quedando de la siguiente manera, "@for"
+
+	_para a continuación crear un variable general en la cuál, guardaremos el valor temporal de cada ciclo realizado por el ciclo for
+
+	_para a continuación agergar la palabra reservada "from", ó "desde", la cuál, indicará desde el punto de partido desde donde comenzará ha realizarse ó ejecutarse el ciclo for, por ejemplo, desde "1", ó "0"
+
+	_para a continuación indicar "hasta", donde se realizará el bucle para que éste no se infinito, por ejemplo hasta "6", iteraciones ó ciclos ó loops 
+
+	_para lo cuál, exiten dos palabras reservadas para indicar ésto, las cuales son:
+
+		_"through", la cuál, puede llevar su valor por ejemplo, hasta "100"
+
+		_"to", la cuál, puede llevar su valor por ejejmplo, hasta "99" 
+
+
+	_para posteriormente indicar entre llaves "{}", las sentencias de selectores y atributos ha ejecutarse ó llevarse a cabo
+
+		_indicando el selector el cuál, hace referencia al respectivo elemento html, respectivo, ej: ".cast"
+
+		_seguido de la variable que hemos creado previamente "$aver", utilizada de forma interpolada como un selector en éste caso "#{$aver}"
+
+		_de ésta manera, ahora la variable "#{$aver}", interpolada es utilizada como selector css, llevará los respectivos atributos ha aplicar a través, de ésta; expresados dentro de dos llaves "{}", seguidos de ésta, ej: "#{$aver}"{color: red;};
+
+
+
+	_
+
+		<div id="revel">
+			<div class="cast1">El Junior</div>
+			<div class="cast2">El Junior</div>
+			<div class="cast3">El Junior</div>
+			<div class="cast4">El Junior</div>
+			<div class="cast5">El Junior</div>
+			<div class="cast6">El Junior</div>
+		</div>	
+
+
+		@for $aver from 1 through 6{
+
+			.cast#{$aver}{
+
+				width: 10px * $aver;
+
+				color: #785 + $aver;
+
+			}
+			
+		}
+
+		//css resultante preprocesado por sass:
+
+			.cast1 {
+			  width: 10px;
+			  color: #788956;
+			}
+
+			.cast2 {
+			  width: 20px;
+			  color: #798a57;
+			}
+
+			.cast3 {
+			  width: 30px;
+			  color: #7a8b58;
+			}
+
+			.cast4 {
+			  width: 40px;
+			  color: #7b8c59;
+			}
+
+			.cast5 {
+			  width: 50px;
+			  color: #7c8d5a;
+			}
+
+			.cast6 {
+			  width: 60px;
+			  color: #7d8e5b;
+			}
+
+
+
+
+
+	un ejemplo más claro:
+	_____________________
+
+		@for $si front 1 through 3{
+			
+			.foritem-#{$i}{
+	
+				width: 10px*$i;
+
+			}
+
+		}
+
+	_lo cuál, dicho bucle for, nos arrojará el siguiente css:
+
+		_.foritem-1{
+			width:10px;
+		}
+
+		_.foritem-2{
+			width:20px;
+		}
+
+		_.foritem-3{
+			width:30px;
+		}
+
+	_entendiéndo así, primeramente que la variable "$i", tomará el valor de la iteración de "fron", "1", llegando "through", hasta "3"
+
+	_y cuándo ésto pase "{}", al selector en éste caso ".foritem", un agregaremos el "sufijo", "-#{$name}", "al final de éste selector", el cuál será la variable interpolada en éste caso "$i", "#{$i}", la cuál, tendrá un valor diferente en cada iteración de bucle
+
+	_y posteriormente dentro de éste selector en éste caso ".foritem", entre llaves "{}", agregar el atributo "width"
+
+	_y como valor de éste atributo "width", una operación aritmética en éste caso; multiplicar "10px", por el valor de la variable en éste caso "$i", en su respectivo valor en cada iteración
+
+
+
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

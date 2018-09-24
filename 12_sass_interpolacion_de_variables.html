@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sass</title>
+
+	<!--css preprocesado por sass-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<!--iconfonts CSS-->
+	<link rel="stylesheet" type="text/css" href="sources/icon_fonts_demo/style.css">
+
+	<style type="text/css">
+
+		/*Curso (48 videos):		
+
+		Referencias:
+
+			http://sass-lang.com/
+
+
+		Curso Básico de Sass (18 videos) | https://www.youtube.com/playlist?list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI
+
+		Tutorial: 12 - Interpolación de variables - Curso Básico de Sasss | https://www.youtube.com/watch?v=y9MFz3xhHTk&list=PL5mZlJHWhPyxKrfbsw5-1GxErJrOrSkWI&index=12
+
+		Sass Functions: "http://sass-lang.com/documentation/Sass/Script/Functions.html"
+
+		Sass en Español
+			ttps://sass-guidelin.es/es/
+
+
+
+	Interpolación de Variables:
+	___________________________
+
+	_"http://sass-lang.com/documentation/file.SASS_REFERENCE.html"
+
+	_sass, nos permitirá extender el uso de las variables dentro del css, a través, de la interpolación de variables, de ésta manera, podremos utilizar las variables a parte de almacenar valores y datos 
+
+	_si no que también, ahora a través, de éstas, podremos asignarle nombres a propiedades, selectores y como valor que el la forma estándar de la utilización de las variables
+
+	
+	
+	Utilizar un variable como un Atributo:
+
+	_para utilizar una variable como un atributo podremos hacer del método de interpolación de varaibles
+
+	_para que así, de ésta manera, ahora podremos hacer atributos dinámicos los cuáles ahora podremos hacer que éstos cambien a través, del tiempo por medio de diferentes métodos de estructuración de contenido 
+
+	_de ésta manra, para aplicar ó llamar un variable de forma interpolada dentro de un selectores para que ésta haga de atributo dinámico, debemos hacer uso del ícono reservado por sass, de "#", seguido de llaves "{}", y dentro de las cuáles debemos expresas la respectiva variable, y para justo a continuación terminar la sentencia con ":", dos punto los cuáles precederán al valor que le será posrteriormente asignado a la respectiva propiedad ej:
+
+		_variables:
+
+			_$color: red;
+			_$ancho: width:;
+
+		_#contenedor{
+			color: $;
+			#{$ancho}: 100%;	
+		}
+
+	_de ésta manera, seguiendo el ejemplo de arribar como prodremos ver, estamos utilizardo la variable "$ancho", la cuál, tiene un valor de "width", ó un atributo el cuál, es "ancho", la estamos utilizando como un atributo más del respectivo selector a la cuál, le estamos indicando un valor, en éste caso el valor de "100%"
+
+	_así, de ésta manera, podremos ver ahora que a través, de ésta variable "$ancho", la propiedad "width", podría cambiar por otra propiedad de forma dinámica gracias al método de interpolación de variables
+
+
+
+	Utilizar un variable como un Selector:
+
+	_de la misma manera, y a través, de la misma configuración podremos utilizar las variables de forma interpolada como selectores para controlar así, elemento html, de forma dinámica en una escala superior a la integración de variables como atributos
+
+	_ejemplo de la utilización de una variable interpolada como selector de tipo tag, html, como "<section>, <h1>, <header>, otros";
+
+	_de ésta manera, la declaración de la varible corresponderá a la variable misma, en ésta caso "$miSelector"
+
+	_y la inicialización de la variable equivaldrá al nombre del respectivo selector html, al que ésta vaiable hará referencia, ya que de ésta manera, el valor que indiquemos ó pasemos a la variable como valor será el valor que sass, le colocará a dicho elemento html, en el css, preprocesado por sass
+
+
+		_<div id="div">
+			<p>Lorem Ipsum</p>
+		</div>
+
+
+		_variables:
+
+			_$miSelector: "h1";
+			_$color: red;
+			_$ancho: width:;
+			
+
+		_#{$miSelector}{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+	_ejemplo de la utilización de una variable interpolada como selector de tipo clase 'class=""':
+
+		_<div class="cuerpo">
+			<p>Lorem Ipsum</p>
+		</div>
+
+
+		_variables:
+
+			_$miSelector: "cuerpo";
+			_$color: red;
+			_$ancho: width:;
+			
+
+		_.#{$miSelector}{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+	_ejemplo de la utilización de una variable interpolada como selector de tipo identificador 'id=""':
+
+		_<div id="cuerpo">
+			<p>Lorem Ipsum</p>
+		</div>
+
+
+		_variables:
+
+			_$miSelector: "selector";
+			_$color: red;
+			_$ancho: width:;
+			
+
+		_##{$miSelector}{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+
+	_e incluso podemos extender la aplicación de una variable interpolada utilizada ó llamada como un selector para que así, ésta pueda utilizarse de forma inremental para diferentes elementos html, con variaciones respectivas en sus respectivos atributos css
+
+	_para lo cuál, hay que agregarle la extensión "-2", a la declaración llamada de la variable interpolada respectiva ej: "#{$name}-2", y así, sescesivamente
+
+	_así, como también, podremos agregarle elementos a modo de pseudo elemento a una clase interpolada la cuál, pasará como un atributo ó selector, ej: ##{$miElemento}-icon
+
+	_de ésta manera, el selector ó atributo agregado será "contneido-de-variable + -icon"
+
+		_variables:
+
+			_$miSelector: "selector";
+			_$color: red;
+			_$ancho: width:;
+			
+
+		_##{$miSelector}{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+		_##{$miSelector}-2{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+		_##{$miSelector}-3{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+	_y de igual manera, podremos utilizar los selectores construidos a través, de variables interpoladas, ha éstos le podemos agregar todo tipo de selectores css, como de herencia,
+
+			_variables:
+
+			_$miSelector: "selector";
+			_$color: red;
+			_$ancho: width:;
+			
+
+		_##{$miSelector} > h2{
+			color: $color;
+			#{$ancho}: 100%;	
+		}
+
+
+
+	Interpolación de Varaibles como Nombre de Archivos:
+
+	_también, podremos utilizar las variables interpoladas para hacer las rutas de archivos dinámicos, de ésta manera, ahora podremos cambiar ó alterna el archivo llamado desde un atributo de tipo imágen de fonto u otro
+
+	_donde de ésta manera, en el ejemplo siguiente la declaración de la variable será "$image1", y la inicialización de la variable será ó corresponderá el nombre del respectivo archivo ha llamar, en éste caso será "producto1"
+
+	_y seguir de éste tendrá que indicarcarse el tipo de extensión de archivo ha llamar junto con el nombre de éste, en éste caso será ".png", ej: 
+
+
+		Variables:
+
+			_$image1: producto1;
+
+		_#cotenedor{
+			background-image: url(source/img/#{$image1}.png);
+		}
+
+	_de ésta manera, ahora podremos llamar a diferentes imágnes u otros archivos a través, de la variables interpoladas de forma dinámica pudiendo cambiar así, el nombre de los archivos de forma variable ó dinámica
+
+	_así, como también, podremos utilizar las variables "sin interpolar", de forma directa como rutas de archivos, las cuáles podemos utilizar como "string", gracias al comportamiento de sass, como un lenguaje de programoación como por ejemplo; javascript, u otros
+
+	_ésto nos permitirá concadenar la variale al resto de elementos de la sentencia respectiva para que así, la variable se comporte ó presente su contenido ó valor como una cadena de texto ó "string"
+
+	_para lo cuál, tendremos que llamar a la variable entre comillas "$name" y concatenada entre singmas "++", ej: "+$name+"; 
+
+		Variables:
+
+			_$image1: producto1;
+
+		_#cotenedor{
+			background-image: url(source/img/" + $image1 + ".png);
+		}
+
+
+
+
+	*/
+
+	</style>
+
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<header>
+			
+			<h1>Este es mi sitio web</h1>
+
+		</header>
+
+		<section id="cuerpo">
+			
+			<div>
+				<h2>Mis Productos</h2>
+			</div>
+
+			<div>
+				<h2>Mis Servicios</h2>
+			</div>
+
+		</section>
+
+		<footer>
+			
+			<h3>Contacto</h3>
+
+			<div>Facebbo, Twitter, YouTube, Teléfonos</div>
+
+		</footer>		
+
+		
+	</div>
+	
+</body>
+
+</html>

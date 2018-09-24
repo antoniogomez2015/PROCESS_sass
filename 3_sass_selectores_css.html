@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>target</title>
+</head>
+
+<style type="text/css">
+	
+	/*
+
+	Selectores Css Sas:
+	___________________
+
+	_sass, dispone de una serie de selectores especiales para aumentar la fluides y productividada del código css
+
+
+		_&:
+
+			_éste selector hace referencia inmediata a los elementos padres, especialmente útil para el proceso de anidación de código ó "Nesting"
+
+			_de ésta manera, podremos referir que éste elemento es hijo inmediato del elemento padre, sin tener que colocar el nombre de la etiqueta del elemento padre precedida de la etiqueta del elemento hijo actual, ej:
+
+
+			_proceso normal:
+
+				_header{
+					width:100%;
+
+					header h1{
+						font-family: helvetica,arial,sans-serif;
+					}
+				}
+
+			_proceso normal:
+
+				_header{
+					width:100%;
+
+					& h1{
+						font-family: helvetica,arial,sans-serif;
+					}
+				}
+
+		NOTA: en el ejemplo anterior que se utiliza el selector "&", que hace referencia al elemento padre, éste nos es requerido ó impresindible en "sass", de ésta manera, podremos expresar los elementos padre e hijo son el selector "&", y de igualmente funcionaría el etiquetado en sass, ej:
+
+			_proceso normal:
+
+				_header{
+					width:100%;
+
+					header h1{
+						font-family: helvetica,arial,sans-serif;
+					}
+				}
+
+			_proceso normal:
+
+				_header{
+					width:100%;
+
+					h1{
+						font-family: helvetica,arial,sans-serif;
+					}
+				}
+
+
+
+	Generación de Selectores:
+	_________________________
+
+	_así, como también, podrmeos crear nuevos selectores declarados con sass, a partir de otro selector por medio de implementación de sufijos, "-ok", agregados al final de cada selector los cuáles hacen referencia a su elemento padre "&", ej:;
+
+		_.boton{
+			color: red;
+
+			&-boton-ok{
+				background-color: yellow;
+			}
+
+			&-boton-error{
+				background-color: blue;
+			}
+		}
+
+	_de ésta manera, sass, preprocesará el siguiente código css:
+
+		_.boton{
+			color: red;
+		}
+
+		_.boton-ok{
+			background-color: yellow;	
+		}
+
+		_.boton-error{
+			background-color: blue;	
+		}
+
+	_así, podremos ver que sass, ha creado tres selectores a partir de un sólo selector
+
+
+
+
+	Conmutación de selectores:
+	__________________________
+
+	_también, tendremos la posibilidad de realizar combinaciones ó conmutaciones posibles en selectores específicos ej:
+
+		_div, p, span{
+			& + &{
+
+				color: white;
+		
+			}
+		}
+
+	_así, de ésta manera, sass, realizará en el css, preprocesado todas las combinaciones posibles entre los selectores indicados y los selectores anidados
+
+		_div +div, p + div, span + div, div +p, p.....{
+			color: white;
+		}
+
+
+
+
+
+
+	*/
+
+	body{
+		border:0;
+		padding:0;
+		margin: 0 auto;
+		background-color: #222;
+	}
+
+		a{
+			font-family: helvetica,arial,sans-serif;
+			font-size: 2rem;
+			text-decoration: none;
+			color: #fff;
+		}
+
+			h1{
+				font-family: helvetica,arial,sans-serif;
+				font-size: 2rem;
+
+			}
+
+			h2{
+				font-family: helvetica,arial,sans-serif;
+				font-size: 1.5rem;
+
+			}
+
+			:target{
+				background-color: red;
+				color: #fff;
+			}
+
+
+
+</style>
+
+
+<body>
+
+	<a href="#factor_1"><h1>Hola Mundo</h1></a>
+
+	<a href="#factor_2"><h2>Bienvenidos</h2></a>
+
+	<div id="factor_1">
+
+		<h3>Factor 1</h3>
+		
+	</div>
+
+	<div id="factor_2">
+
+		<h3>Factor 2</h3>
+		
+	</div>
+	
+</body>
+
+</html>
